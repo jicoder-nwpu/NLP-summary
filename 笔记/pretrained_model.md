@@ -23,3 +23,10 @@ run.sh
 > utils.py
 >
 > _get_encoded_data() convert_batch()
+
+##### 学习率
+
+```python
+BERT --lr 2e-5 --lr_decay 0.95
+```
+
