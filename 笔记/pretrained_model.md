@@ -72,3 +72,6 @@ DataLoader()
 BERT --lr 2e-5 --lr_decay 0.95
 ```
 
+##### with **torch**.**no_grad**():
+
+设置计算图不在传递梯度，不再占用显存
