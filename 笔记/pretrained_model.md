@@ -75,3 +75,40 @@ BERT --lr 2e-5 --lr_decay 0.95
 ##### with **torch**.**no_grad**():
 
 设置计算图不在传递梯度，不再占用显存
+
+#### 对话系统融合知识
+
+> content + knowledge
+
+##### 表格
+
+key - value
+
+knowledge embedding = value embedding + key embedding + position embedding
+
+##### 知识图谱
+
+1. 通过template的形式转化为纯文本处理
+2. 树结构
+
+> soft position + masked encoder
+>
+> 同一课知识树中的词仅关注给树内的词
+
+##### 文本
+
+1. DOHA(Document Headed Attention)
+
+共享编码器，知识太长需要截断
+
+> context -> hc
+>
+> knowledge + context -> hd
+>
+> self-attention -> cross-attention -> corss-attention -> forward-feed
+
+2. FID(Fusion in Decoder)
+
+共享编码器，知识分段不需要截断
+
+> 全部编码，连接后在Decoder中cross-attention
