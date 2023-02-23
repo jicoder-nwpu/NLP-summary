@@ -2,6 +2,12 @@
 
 #### summary生成
 
+##### 训练命令：
+
+```python
+nohup CUDA_VISIBLE_DEVICES=1 python train.py --mode train --context_window 5 --pretrained_checkpoint origin_model --lr 3e-5 --lr_decay 0.8 --gradient_accumulation_steps 1 --cfg seed=557 batch_size=8 >> log.text &
+```
+
 |  id  | 是否开放域预训练 | 是否DST摘要finetuning |            输入形式            |      生成label形式       | 窗口大小 | DST标签覆盖范围 | 是否完成 | BLEU  | Loss  |
 | :--: | :--------------: | :-------------------: | :----------------------------: | :----------------------: | :------: | :-------------: | :------: | :---: | :---: |
 |  a   |        是        |          否           |               -                |            -             |    -     |        -        |    是    |   -   |   -   |
@@ -31,6 +37,18 @@ enc['summary'] = self.vocab.tokenizer.encode("<s> " + target_sen + " </s>")
 #### response生成
 
 >  该部分对话历史窗口与所使用的summary模型窗口保持一致
+
+##### 训练命令
+
+```python
+nohup python train.py --mode train --context_window 5 --pretrained_checkpoint response_model --lr 3e-5 --lr_decay 0.8 --gradient_accumulation_steps 1 --cfg seed=557 batch_size=4 >> output.txt &
+```
+
+##### 测试命令
+
+```python
+python train.py --mode=test --context_window=5 --model_path=experiments/2023-01-04-10-55-27_all_sd557_lr3e-05_bs4_sp5_dc0.8_cw5_model_response_model_1.0 --pretrained_checkpoint=response_model --cfg seed=557 batch_size=8
+```
 
 ##### 纯Bart基线
 
