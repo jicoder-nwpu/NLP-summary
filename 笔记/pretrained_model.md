@@ -112,3 +112,14 @@ knowledge embedding = value embedding + key embedding + position embedding
 共享编码器，知识分段不需要截断
 
 > 全部编码，连接后在Decoder中cross-attention
+
+#### 模型输入输出格式
+
+```python
+dial_context.append( self.vocab.tokenizer.encode(" " + t['user'] + " <eos_u>"))
+enc['user'] = [bos_token_id] + list(chain(*dial_context[-self.args.context_window:]))
+dial_context.append( self.vocab.tokenizer.encode(' ' + t['resp_nodelex'] + ' <eos_r>') )
+
+enc['resp'] = self.vocab.tokenizer.encode('<s> ' + t['resp'] + ' </s>')
+```
+
