@@ -189,11 +189,11 @@
         <th>2</th>
         <th>true</th>
         <th>Titan</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>10</th>
+        <th>92.70</th>
+        <th>83.70</th>
+        <th>18.29</th>
+        <th>106.49</th>
         <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/ws2_ururu_output</th>
     </tr>
     <tr>
@@ -239,6 +239,7 @@
         <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/resp_ururu_output</th>
     </tr>
 </table>
+
 
 ##### # 表示变量可选择范围内的最好结果
 
