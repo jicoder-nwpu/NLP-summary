@@ -87,13 +87,13 @@
         <th>true</th>
         <th>redx</th>
         <th>-1</th>
-        <th></th>
+        <th>false</th>
         <th>2080Ti</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>10</th>
+        <th>91.90</th>
+        <th>83.50</th>
+        <th>17.66</th>
+        <th>105.36</th>
         <th>四卡/home/jhr/MTTOD-main/ururur_all_dir</th>
     </tr>
     <tr>
@@ -101,13 +101,13 @@
         <th>true</th>
         <th>redx</th>
         <th>-1</th>
-        <th></th>
+        <th>false#</th>
         <th>2080Ti</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>10</th>
+        <th>91.10</th>
+        <th>80.70</th>
+        <th>17.64</th>
+        <th>103.54</th>
         <th>四卡/home/jhr/MTTOD-main/ururur_all_add_dir</th>
     </tr>
     <tr>
@@ -161,11 +161,11 @@
         <th>4</th>
         <th>true</th>
         <th>2080Ti</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>7</th>
+        <th>94.10</th>
+        <th>84.50</th>
+        <th>19.56</th>
+        <th>108.86</th>
         <th>四卡/home/jhr/share_encoder/MTTOD-main/again_output_dir</th>
     </tr>
     <tr>
@@ -203,11 +203,11 @@
         <th>5</th>
         <th>true</th>
         <th>2080Ti</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>6</th>
+        <th>92.80</th>
+        <th>83.80</th>
+        <th>19.13</th>
+        <th>107.43</th>
         <th>四卡/home/jhr/share_encoder/MTTOD-main/ws5_output_dir</th>
     </tr>
     <tr>
@@ -239,3 +239,8 @@
         <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/resp_ururu_output</th>
     </tr>
 </table>
+
+##### # 表示变量可选择范围内的最好结果
+
+##### * 表示不确定
+
