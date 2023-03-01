@@ -123,18 +123,18 @@
         <th>false</th>
         <th>redx</th>
         <th>-1</th>
-        <th></th>
+        <th>false</th>
         <th>Titan</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>10</th>
+        <th>90.60</th>
+        <th>82.10</th>
+        <th>18.14</th>
+        <th>104.49</th>
         <th>Titan/home/jhr/MTTOD-main/noadd_output_dir</th>
     </tr>
     <tr>
-    	<th rowspan="9">OURS</th>
-        <th rowspan="9">T5-base</th>
+    	<th rowspan="11">OURS</th>
+        <th rowspan="11">T5-base</th>
         <th>-</th>
         <th>2</th>
         <th>false</th>
@@ -283,6 +283,21 @@
         <th></th>
         <th></th>
         <th>四卡/home/jhr/share_encoder/MTTOD-main/sum_ws_3_dir</th>
+    </tr>
+    <tr>
+        <th>-</th>
+        <th>2</th>
+        <th>true</th>
+        <th>redx</th>
+        <th>3(2)</th>
+        <th>true</th>
+        <th>2080Ti</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>四卡/home/jhr/share_encoder/MTTOD-main/sum_ws_2_dir</th>
     </tr>
 </table>
 
