@@ -2,6 +2,8 @@
 
 ```bash
 CUDA_VISIBLE_DEVICES=1 python3 main.py -version 2.1 -run_type train -backbone ./model_path/ -model_dir ./output_dir -batch_size 4
+
+CUDA_VISIBLE_DEVICES=1 python3 main.py -version 2.1 -run_type train -backbone ./model_path/ -model_dir ./sum_ws_4_dir -context_size 5 -batch_size 8 -ururu -add_summary_cross_attention
 ```
 
 ##### 推理命令

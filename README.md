@@ -1,11 +1,12 @@
 <table style="text-align:center">
     <tr>
-        <th colspan="14">TOD 实验结果</th>
+        <th colspan="15">TOD 实验结果</th>
     </tr>
     <tr>
         <th rowspan="2">模型</th>
         <th rowspan="2">backbone</th>
         <th rowspan="2">trick</th>
+        <th rowspan="2">Summary labels窗口大小</th>
         <th colspan="3">Encoder</th>
         <th colspan="1">Decoder(Predict)</th>
         <th colspan="2">实验设置</th>
@@ -28,6 +29,7 @@
     	<th rowspan="7">MTTOD</th>
         <th rowspan="7">T5-base</th>
         <th>-</th>
+        <th>-</th>
         <th>false</th>
         <th>redx</th>
         <th>-1*</th>
@@ -41,7 +43,8 @@
         <th>四卡/home/jhr/MTTOD-main/model_path</th>
     </tr>
     <tr>
-        <th>_</th>
+        <th>-</th>
+        <th>-</th>
         <th>false</th>
         <th>redx</th>
         <th>-1*</th>
@@ -55,6 +58,7 @@
         <th>四卡/home/jhr/MTTOD-main/model_path</th>
     </tr>
     <tr>
+        <th>-</th>
         <th>-</th>
         <th>true</th>
         <th>redx</th>
@@ -70,6 +74,7 @@
     </tr>
     <tr>
         <th>add_auxiliary_task</th>
+        <th>-</th>
         <th>false</th>
         <th>redx</th>
         <th>-1</th>
@@ -83,6 +88,7 @@
         <th>Titan/home/jhr/MTTOD-main/output_dir</th>
     </tr>
     <tr>
+        <th>-</th>
         <th>-</th>
         <th>true</th>
         <th>redx</th>
@@ -98,6 +104,7 @@
     </tr>
     <tr>
         <th>add_auxiliary_task</th>
+        <th>-</th>
         <th>true</th>
         <th>redx</th>
         <th>-1</th>
@@ -112,6 +119,7 @@
     </tr>
     <tr>
         <th>-</th>
+        <th>-</th>
         <th>false</th>
         <th>redx</th>
         <th>-1</th>
@@ -125,9 +133,10 @@
         <th>Titan/home/jhr/MTTOD-main/noadd_output_dir</th>
     </tr>
     <tr>
-    	<th rowspan="8">OURS</th>
-        <th rowspan="8">T5-base</th>
+    	<th rowspan="9">OURS</th>
+        <th rowspan="9">T5-base</th>
         <th>-</th>
+        <th>2</th>
         <th>false</th>
         <th>redx</th>
         <th>4</th>
@@ -142,6 +151,7 @@
     </tr>
     <tr>
         <th>-</th>
+        <th>2</th>
         <th>true</th>
         <th>redx</th>
         <th>4</th>
@@ -156,6 +166,7 @@
     </tr>
     <tr>
         <th>-</th>
+        <th>2</th>
         <th>true</th>
         <th>redx</th>
         <th>4</th>
@@ -170,6 +181,7 @@
     </tr>
     <tr>
         <th>-</th>
+        <th>2</th>
         <th>true</th>
         <th>redx</th>
         <th>2</th>
@@ -184,6 +196,7 @@
     </tr>
     <tr>
         <th>cross attention</th>
+        <th>2</th>
         <th>true</th>
         <th>redx</th>
         <th>2</th>
@@ -198,6 +211,7 @@
     </tr>
     <tr>
         <th>-</th>
+        <th>2</th>
         <th>true</th>
         <th>redx</th>
         <th>5</th>
@@ -212,6 +226,7 @@
     </tr>
     <tr>
         <th>cross attention</th>
+        <th>2</th>
         <th>true</th>
         <th>redx</th>
         <th>4</th>
@@ -226,6 +241,7 @@
     </tr>
     <tr>
         <th>cross attention</th>
+        <th>2</th>
         <th>true</th>
         <th>resp</th>
         <th>4</th>
@@ -238,10 +254,51 @@
         <th>103.28</th>
         <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/resp_ururu_output</th>
     </tr>
+    <tr>
+        <th>cross attention</th>
+        <th>4</th>
+        <th>true</th>
+        <th>redx</th>
+        <th>5(4)</th>
+        <th>true</th>
+        <th>Titan</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_4_dir</th>
+    </tr>
+    <tr>
+        <th>-</th>
+        <th>3</th>
+        <th>true</th>
+        <th>redx</th>
+        <th>4(3)</th>
+        <th>true</th>
+        <th>2080Ti</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>四卡/home/jhr/share_encoder/MTTOD-main/sum_ws_3_dir</th>
+    </tr>
 </table>
+
 
 
 ##### # 表示变量可选择范围内的最好结果
 
 ##### * 表示不确定
+
+##### Tips: Titan cross_attention版本需要在model初始化中手动设置是否添加summary cross attention模块
+
+```python
+decoder_config.add_summary_cross_attention = True & -add_summary_cross_attention
+```
+
+###### 新下载的`config.json`需添加```json"add_summary_cross_attention"=false```
+
+###### context_size(dia_history) = window_size(preprocess_summary_labels) + 1
 
