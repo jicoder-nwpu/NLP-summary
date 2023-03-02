@@ -1,305 +1,321 @@
 <table style="text-align:center">
-    <tr>
-        <th colspan="15">TOD 实验结果</th>
-    </tr>
-    <tr>
-        <th rowspan="2">模型</th>
-        <th rowspan="2">backbone</th>
-        <th rowspan="2">trick</th>
-        <th rowspan="2">Summary labels窗口大小</th>
-        <th colspan="3">Encoder</th>
-        <th colspan="1">Decoder(Predict)</th>
-        <th colspan="2">实验设置</th>
-        <th colspan="4">得分</th>
-        <th rowspan="2">目录</th>
-    </tr>
-    <tr>
-        <th>ururu</th>
-        <th>resp/redx</th>
-        <th>context_size</th>
-        <th>use_truth_db</th>
-        <th>显卡</th>
-        <th>epoch</th>
-        <th>Inform</th>
-        <th>Success</th>
-        <th>Bleu</th>
-        <th>Score</th>
-    </tr>
-    <tr>
-    	<th rowspan="7">MTTOD</th>
-        <th rowspan="7">T5-base</th>
-        <th>-</th>
-        <th>-</th>
-        <th>false</th>
-        <th>redx</th>
-        <th>-1*</th>
-        <th>false*</th>
-        <th>2080Ti</th>
-        <th>10</th>
-        <th>91.10</th>
-        <th>82.70</th>
-        <th>18.54</th>
-        <th>105.44</th>
-        <th>四卡/home/jhr/MTTOD-main/model_path</th>
-    </tr>
-    <tr>
-        <th>-</th>
-        <th>-</th>
-        <th>false</th>
-        <th>redx</th>
-        <th>-1*</th>
-        <th>true*</th>
-        <th>2080Ti</th>
-        <th>10</th>
-        <th>92.70</th>
-        <th>84.40</th>
-        <th>18.65</th>
-        <th>107.20</th>
-        <th>四卡/home/jhr/MTTOD-main/model_path</th>
-    </tr>
-    <tr>
-        <th>-</th>
-        <th>-</th>
-        <th>true</th>
-        <th>redx</th>
-        <th>2</th>
-        <th>true*</th>
-        <th>2080Ti</th>
-        <th>10</th>
-        <th>52.60</th>
-        <th>47.30</th>
-        <th>18.61</th>
-        <th>68.56</th>
-        <th>四卡/home/jhr/MTTOD-main/ururur_output_dir</th>
-    </tr>
-    <tr>
-        <th>add_auxiliary_task</th>
-        <th>-</th>
-        <th>false</th>
-        <th>redx</th>
-        <th>-1</th>
-        <th>false</th>
-        <th>Titan</th>
-        <th>9</th>
-        <th>89.90</th>
-        <th>81.20</th>
-        <th>18.66</th>
-        <th>104.21</th>
-        <th>Titan/home/jhr/MTTOD-main/output_dir</th>
-    </tr>
-    <tr>
-        <th>-</th>
-        <th>-</th>
-        <th>true</th>
-        <th>redx</th>
-        <th>-1</th>
-        <th>false</th>
-        <th>2080Ti</th>
-        <th>10</th>
-        <th>91.90</th>
-        <th>83.50</th>
-        <th>17.66</th>
-        <th>105.36</th>
-        <th>四卡/home/jhr/MTTOD-main/ururur_all_dir</th>
-    </tr>
-    <tr>
-        <th>add_auxiliary_task</th>
-        <th>-</th>
-        <th>true</th>
-        <th>redx</th>
-        <th>-1</th>
-        <th>false#</th>
-        <th>2080Ti</th>
-        <th>10</th>
-        <th>91.10</th>
-        <th>80.70</th>
-        <th>17.64</th>
-        <th>103.54</th>
-        <th>四卡/home/jhr/MTTOD-main/ururur_all_add_dir</th>
-    </tr>
-    <tr>
-        <th>-</th>
-        <th>-</th>
-        <th>false</th>
-        <th>redx</th>
-        <th>-1</th>
-        <th>false</th>
-        <th>Titan</th>
-        <th>10</th>
-        <th>90.60</th>
-        <th>82.10</th>
-        <th>18.14</th>
-        <th>104.49</th>
-        <th>Titan/home/jhr/MTTOD-main/noadd_output_dir</th>
-    </tr>
-    <tr>
-    	<th rowspan="11">OURS</th>
-        <th rowspan="11">T5-base</th>
-        <th>-</th>
-        <th>2</th>
-        <th>false</th>
-        <th>redx</th>
-        <th>4</th>
-        <th>true</th>
-        <th>2080Ti</th>
-        <th>7</th>
-        <th>91.50</th>
-        <th>81.30</th>
-        <th>19.69</th>
-        <th>106.09</th>
-        <th>四卡/home/jhr/share_encoder/MTTOD-main/output_dir</th>
-    </tr>
-    <tr>
-        <th>-</th>
-        <th>2</th>
-        <th>true</th>
-        <th>redx</th>
-        <th>4</th>
-        <th>true</th>
-        <th>2080Ti</th>
-        <th>7</th>
-        <th>94.10</th>
-        <th>84.50</th>
-        <th>19.56</th>
-        <th>108.86</th>
-        <th>四卡/home/jhr/share_encoder/MTTOD-main/ururu_output</th>
-    </tr>
-    <tr>
-        <th>-</th>
-        <th>2</th>
-        <th>true</th>
-        <th>redx</th>
-        <th>4</th>
-        <th>true</th>
-        <th>2080Ti</th>
-        <th>7</th>
-        <th>94.10</th>
-        <th>84.50</th>
-        <th>19.56</th>
-        <th>108.86</th>
-        <th>四卡/home/jhr/share_encoder/MTTOD-main/again_output_dir</th>
-    </tr>
-    <tr>
-        <th>-</th>
-        <th>2</th>
-        <th>true</th>
-        <th>redx</th>
-        <th>2</th>
-        <th>true</th>
-        <th>2080Ti</th>
-        <th>10</th>
-        <th>93.80</th>
-        <th>84.50</th>
-        <th>18.70</th>
-        <th>107.85</th>
-        <th>四卡/home/jhr/share_encoder/MTTOD-main/ururu_context_size_2_output</th>
-    </tr>
-    <tr>
-        <th>cross attention</th>
-        <th>2</th>
-        <th>true</th>
-        <th>redx</th>
-        <th>2</th>
-        <th>true</th>
-        <th>Titan</th>
-        <th>10</th>
-        <th>92.70</th>
-        <th>83.70</th>
-        <th>18.29</th>
-        <th>106.49</th>
-        <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/ws2_ururu_output</th>
-    </tr>
-    <tr>
-        <th>-</th>
-        <th>2</th>
-        <th>true</th>
-        <th>redx</th>
-        <th>5</th>
-        <th>true</th>
-        <th>2080Ti</th>
-        <th>6</th>
-        <th>92.80</th>
-        <th>83.80</th>
-        <th>19.13</th>
-        <th>107.43</th>
-        <th>四卡/home/jhr/share_encoder/MTTOD-main/ws5_output_dir</th>
-    </tr>
-    <tr>
-        <th>cross attention</th>
-        <th>2</th>
-        <th>true</th>
-        <th>redx</th>
-        <th>4</th>
-        <th>true</th>
-        <th>Titan</th>
-        <th>9</th>
-        <th>93.10</th>
-        <th>85.00</th>
-        <th>18.29</th>
-        <th>107.34</th>
-        <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/ururu_output</th>
-    </tr>
-    <tr>
-        <th>cross attention</th>
-        <th>2</th>
-        <th>true</th>
-        <th>resp</th>
-        <th>4</th>
-        <th>true</th>
-        <th>Titan</th>
-        <th>10</th>
-        <th>89.30</th>
-        <th>81.30</th>
-        <th>17.98</th>
-        <th>103.28</th>
-        <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/resp_ururu_output</th>
-    </tr>
-    <tr>
-        <th>cross attention</th>
-        <th>4</th>
-        <th>true</th>
-        <th>redx</th>
-        <th>5(4)</th>
-        <th>true</th>
-        <th>Titan</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_4_dir</th>
-    </tr>
-    <tr>
-        <th>-</th>
-        <th>3</th>
-        <th>true</th>
-        <th>redx</th>
-        <th>4(3)</th>
-        <th>true</th>
-        <th>2080Ti</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th>四卡/home/jhr/share_encoder/MTTOD-main/sum_ws_3_dir</th>
-    </tr>
-    <tr>
-        <th>-</th>
-        <th>2</th>
-        <th>true</th>
-        <th>redx</th>
-        <th>3(2)</th>
-        <th>true</th>
-        <th>2080Ti</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th>四卡/home/jhr/share_encoder/MTTOD-main/sum_ws_2_dir</th>
-    </tr>
+<tr>
+<th colspan="15">TOD 实验结果</th>
+</tr>
+<tr>
+<th rowspan="2">模型</th>
+<th rowspan="2">backbone</th>
+<th rowspan="2">trick</th>
+<th rowspan="2">Summary labels窗口大小</th>
+<th colspan="3">Encoder</th>
+<th colspan="1">Decoder(Predict)</th>
+<th colspan="2">实验设置</th>
+<th colspan="4">得分</th>
+<th rowspan="2">目录</th>
+</tr>
+<tr>
+<th>ururu</th>
+<th>resp/redx</th>
+<th>context_size</th>
+<th>use_truth_db</th>
+<th>显卡</th>
+<th>epoch</th>
+<th>Inform</th>
+<th>Success</th>
+<th>Bleu</th>
+<th>Score</th>
+</tr>
+<tr>
+<th rowspan="7">MTTOD</th>
+<th rowspan="7">T5-base</th>
+<th>-</th>
+<th>-</th>
+<th>false</th>
+<th>redx</th>
+<th>-1*</th>
+<th>false*</th>
+<th>2080Ti</th>
+<th>10</th>
+<th>91.10</th>
+<th>82.70</th>
+<th>18.54</th>
+<th>105.44</th>
+<th>四卡/home/jhr/MTTOD-main/model_path</th>
+</tr>
+<tr>
+<th>-</th>
+<th>-</th>
+<th>false</th>
+<th>redx</th>
+<th>-1*</th>
+<th>true*</th>
+<th>2080Ti</th>
+<th>10</th>
+<th>92.70</th>
+<th>84.40</th>
+<th>18.65</th>
+<th>107.20</th>
+<th>四卡/home/jhr/MTTOD-main/model_path</th>
+</tr>
+<tr>
+<th>-</th>
+<th>-</th>
+<th>true</th>
+<th>redx</th>
+<th>2</th>
+<th>true*</th>
+<th>2080Ti</th>
+<th>10</th>
+<th>52.60</th>
+<th>47.30</th>
+<th>18.61</th>
+<th>68.56</th>
+<th>四卡/home/jhr/MTTOD-main/ururur_output_dir</th>
+</tr>
+<tr>
+<th>add_auxiliary_task</th>
+<th>-</th>
+<th>false</th>
+<th>redx</th>
+<th>-1</th>
+<th>false</th>
+<th>Titan</th>
+<th>9</th>
+<th>89.90</th>
+<th>81.20</th>
+<th>18.66</th>
+<th>104.21</th>
+<th>Titan/home/jhr/MTTOD-main/output_dir</th>
+</tr>
+<tr>
+<th>-</th>
+<th>-</th>
+<th>true</th>
+<th>redx</th>
+<th>-1</th>
+<th>false</th>
+<th>2080Ti</th>
+<th>10</th>
+<th>91.90</th>
+<th>83.50</th>
+<th>17.66</th>
+<th>105.36</th>
+<th>四卡/home/jhr/MTTOD-main/ururur_all_dir</th>
+</tr>
+<tr>
+<th>add_auxiliary_task</th>
+<th>-</th>
+<th>true</th>
+<th>redx</th>
+<th>-1</th>
+<th>false#</th>
+<th>2080Ti</th>
+<th>10</th>
+<th>91.10</th>
+<th>80.70</th>
+<th>17.64</th>
+<th>103.54</th>
+<th>四卡/home/jhr/MTTOD-main/ururur_all_add_dir</th>
+</tr>
+<tr>
+<th>-</th>
+<th>-</th>
+<th>false</th>
+<th>redx</th>
+<th>-1</th>
+<th>false</th>
+<th>Titan</th>
+<th>10</th>
+<th>90.60</th>
+<th>82.10</th>
+<th>18.14</th>
+<th>104.49</th>
+<th>Titan/home/jhr/MTTOD-main/noadd_output_dir</th>
+</tr>
+<tr>
+<th rowspan="12">OURS</th>
+<th rowspan="12">T5-base</th>
+<th>-</th>
+<th>2</th>
+<th>false</th>
+<th>redx</th>
+<th>4</th>
+<th>true</th>
+<th>2080Ti</th>
+<th>7</th>
+<th>91.50</th>
+<th>81.30</th>
+<th>19.69</th>
+<th>106.09</th>
+<th>四卡/home/jhr/share_encoder/MTTOD-main/output_dir</th>
+</tr>
+<tr>
+<th>-</th>
+<th>2</th>
+<th>true</th>
+<th>redx</th>
+<th>4</th>
+<th>true</th>
+<th>2080Ti</th>
+<th>7</th>
+<th>94.10</th>
+<th>84.50</th>
+<th>19.56</th>
+<th>108.86</th>
+<th>四卡/home/jhr/share_encoder/MTTOD-main/ururu_output</th>
+</tr>
+<tr>
+<th>-</th>
+<th>2</th>
+<th>true</th>
+<th>redx</th>
+<th>4</th>
+<th>true</th>
+<th>2080Ti</th>
+<th>7</th>
+<th>94.10</th>
+<th>84.50</th>
+<th>19.56</th>
+<th>108.86</th>
+<th>四卡/home/jhr/share_encoder/MTTOD-main/again_output_dir</th>
+</tr>
+<tr>
+<th>-</th>
+<th>2</th>
+<th>true</th>
+<th>redx</th>
+<th>2</th>
+<th>true</th>
+<th>2080Ti</th>
+<th>10</th>
+<th>93.80</th>
+<th>84.50</th>
+<th>18.70</th>
+<th>107.85</th>
+<th>四卡/home/jhr/share_encoder/MTTOD-main/ururu_context_size_2_output</th>
+</tr>
+<tr>
+<th>cross attention</th>
+<th>2</th>
+<th>true</th>
+<th>redx</th>
+<th>2</th>
+<th>true</th>
+<th>Titan</th>
+<th>10</th>
+<th>92.70</th>
+<th>83.70</th>
+<th>18.29</th>
+<th>106.49</th>
+<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/ws2_ururu_output</th>
+</tr>
+<tr>
+<th>-</th>
+<th>2</th>
+<th>true</th>
+<th>redx</th>
+<th>5</th>
+<th>true</th>
+<th>2080Ti</th>
+<th>6</th>
+<th>92.80</th>
+<th>83.80</th>
+<th>19.13</th>
+<th>107.43</th>
+<th>四卡/home/jhr/share_encoder/MTTOD-main/ws5_output_dir</th>
+</tr>
+<tr>
+<th>cross attention</th>
+<th>2</th>
+<th>true</th>
+<th>redx</th>
+<th>4</th>
+<th>true</th>
+<th>Titan</th>
+<th>9</th>
+<th>93.10</th>
+<th>85.00</th>
+<th>18.29</th>
+<th>107.34</th>
+<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/ururu_output</th>
+</tr>
+<tr>
+<th>cross attention</th>
+<th>2</th>
+<th>true</th>
+<th>resp</th>
+<th>4</th>
+<th>true</th>
+<th>Titan</th>
+<th>10</th>
+<th>89.30</th>
+<th>81.30</th>
+<th>17.98</th>
+<th>103.28</th>
+<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/resp_ururu_output</th>
+</tr>
+<tr>
+<th>cross attention</th>
+<th>4</th>
+<th>true</th>
+<th>redx</th>
+<th>5(4)</th>
+<th>true</th>
+<th>Titan</th>
+<th>7</th>
+<th>94.30</th>
+<th>85.60</th>
+<th>19.07</th>
+<th>109.02</th>
+<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_4_bs_8dir</th>
+</tr>
+<tr>
+<th>-</th>
+<th>4</th>
+<th>true</th>
+<th>redx</th>
+<th>5(4)</th>
+<th>true</th>
+<th>Titan</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws4_nocross_dir</th>
+</tr> 
+<tr>
+<th>-</th>
+<th>3</th>
+<th>true</th>
+<th>redx</th>
+<th>4(3)</th>
+<th>true</th>
+<th>2080Ti</th>
+<th>10</th>
+<th>93.50</th>
+<th>84.40</th>
+<th>18.79</th>
+<th>107.74</th>
+<th>四卡/home/jhr/share_encoder/MTTOD-main/sum_ws_3_dir</th>
+</tr>
+<tr>
+<th>-</th>
+<th>2</th>
+<th>true</th>
+<th>redx</th>
+<th>3(2)</th>
+<th>true</th>
+<th>2080Ti</th>
+<th>10</th>
+<th>92.70</th>
+<th>83.80</th>
+<th>18.98</th>
+<th>107.23</th>
+<th>四卡/home/jhr/share_encoder/MTTOD-main/sum_ws_2_dir</th>
+</tr>
 </table>
+
 
 
 
