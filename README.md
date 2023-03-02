@@ -277,11 +277,11 @@
 <th>5(4)</th>
 <th>true</th>
 <th>Titan</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
+<th>7</th>
+<th>93.90</th>
+<th>85.20</th>
+<th>19.86</th>
+<th>109.41</th>
 <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws4_nocross_dir</th>
 </tr> 
 <tr>
