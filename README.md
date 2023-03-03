@@ -133,8 +133,8 @@
 <th>Titan/home/jhr/MTTOD-main/noadd_output_dir</th>
 </tr>
 <tr>
-<th rowspan="12">OURS</th>
-<th rowspan="12">T5-base</th>
+<th rowspan="13">OURS</th>
+<th rowspan="13">T5-base</th>
 <th>-</th>
 <th>2</th>
 <th>false</th>
@@ -195,7 +195,7 @@
 <th>四卡/home/jhr/share_encoder/MTTOD-main/ururu_context_size_2_output</th>
 </tr>
 <tr>
-<th>cross attention</th>
+<th>cross attention/12 layers</th>
 <th>2</th>
 <th>true</th>
 <th>redx</th>
@@ -225,7 +225,7 @@
 <th>四卡/home/jhr/share_encoder/MTTOD-main/ws5_output_dir</th>
 </tr>
 <tr>
-<th>cross attention</th>
+<th>cross attention/12 layers</th>
 <th>2</th>
 <th>true</th>
 <th>redx</th>
@@ -240,7 +240,7 @@
 <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/ururu_output</th>
 </tr>
 <tr>
-<th>cross attention</th>
+<th>cross attention/12 layers</th>
 <th>2</th>
 <th>true</th>
 <th>resp</th>
@@ -255,7 +255,7 @@
 <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/resp_ururu_output</th>
 </tr>
 <tr>
-<th>cross attention</th>
+<th>cross attention/12 layers</th>
 <th>4</th>
 <th>true</th>
 <th>redx</th>
@@ -268,6 +268,21 @@
 <th>19.07</th>
 <th>109.02</th>
 <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_4_bs_8dir</th>
+</tr>
+<tr>
+<th>cross attention/6 layers</th>
+<th>4</th>
+<th>true</th>
+<th>redx</th>
+<th>5(4)</th>
+<th>true</th>
+<th>Titan</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_4_cross_6_dir</th>
 </tr>
 <tr>
 <th>-</th>
@@ -319,6 +334,7 @@
 
 
 
+
 ##### # 表示变量可选择范围内的最好结果
 
 ##### * 表示不确定
@@ -326,10 +342,15 @@
 ##### Tips: Titan cross_attention版本需要在model初始化中手动设置是否添加summary cross attention模块
 
 ```python
-decoder_config.add_summary_cross_attention = True & -add_summary_cross_attention
+decoder_config.add_summary_cross_attention = True
+decoder_config.summary_attention_layers = 6   #add_summary_cross_attention是summary_attention_layers的开关
+-add_summary_cross_attention
 ```
 
-###### 新下载的`config.json`需添加```json"add_summary_cross_attention"=false```
+###### 新下载的`config.json`需添加```json"add_summary_cross_attention"=false``` 以及 `"summary_attention_layers": 0`
 
 ###### context_size(dia_history) = window_size(preprocess_summary_labels) + 1
 
+#### 实验设置
+
+epoch=10, batch_size=8, warmup_ratio=0.1
