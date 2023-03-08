@@ -195,21 +195,6 @@
 <th>四卡/home/jhr/share_encoder/MTTOD-main/ururu_context_size_2_output</th>
 </tr>
 <tr>
-<th>cross attention/12 layers</th>
-<th>2</th>
-<th>true</th>
-<th>redx</th>
-<th>2</th>
-<th>true</th>
-<th>Titan</th>
-<th>10</th>
-<th>92.70</th>
-<th>83.70</th>
-<th>18.29</th>
-<th>106.49</th>
-<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/ws2_ururu_output</th>
-</tr>
-<tr>
 <th>-</th>
 <th>2</th>
 <th>true</th>
@@ -224,38 +209,8 @@
 <th>107.43</th>
 <th>四卡/home/jhr/share_encoder/MTTOD-main/ws5_output_dir</th>
 </tr>
-<tr>
-<th>cross attention/12 layers</th>
-<th>2</th>
-<th>true</th>
-<th>redx</th>
-<th>4</th>
-<th>true</th>
-<th>Titan</th>
-<th>9</th>
-<th>93.10</th>
-<th>85.00</th>
-<th>18.29</th>
-<th>107.34</th>
-<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/ururu_output</th>
-</tr>
-<tr>
-<th>cross attention/12 layers</th>
-<th>2</th>
-<th>true</th>
-<th>resp</th>
-<th>4</th>
-<th>true</th>
-<th>Titan</th>
-<th>10</th>
-<th>89.30</th>
-<th>81.30</th>
-<th>17.98</th>
-<th>103.28</th>
-<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/resp_ururu_output</th>
-</tr>
-<tr>
-<th>cross attention/12 layers</th>
+<tr style="background:#bae8e8">
+<th>cross attention/12 layers/summary id embedding encoder</th>
 <th>4</th>
 <th>true</th>
 <th>redx</th>
@@ -263,14 +218,14 @@
 <th>true</th>
 <th>Titan</th>
 <th>7</th>
-<th>94.30</th>
-<th>85.60</th>
-<th>19.07</th>
-<th>109.02</th>
-<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_4_bs_8dir</th>
+<th style="background:#ff7e1a">94.50</th>
+<th style="background:#ff7e1a">85.90</th>
+<th>19.57</th>
+<th>109.77</th>
+<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws4_cross_encoder</th>
 </tr>
 <tr>
-<th>cross attention/6 layers</th>
+<th>cross attention/12 layers/decoder hidden states ff relu</th>
 <th>4</th>
 <th>true</th>
 <th>redx</th>
@@ -282,9 +237,24 @@
 <th></th>
 <th></th>
 <th></th>
-<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_4_cross_6_dir</th>
+<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_4_cross_ff_relu</th>
 </tr>
 <tr>
+<th>cross attention/12 layers/decoder hidden states ff no relu</th>
+<th>4</th>
+<th>true</th>
+<th>redx</th>
+<th>5(4)</th>
+<th>true</th>
+<th>Titan</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_4_cross_ff_norelu</th>
+</tr>
+<tr style="background:#e3f6f5">
 <th>-</th>
 <th>4</th>
 <th>true</th>
@@ -295,10 +265,10 @@
 <th>7</th>
 <th>93.90</th>
 <th>85.20</th>
-<th>19.86</th>
+<th style="background:#ff7e1a">19.86</th>
 <th>109.41</th>
 <th>Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws4_nocross_dir</th>
-</tr> 
+</tr>
 <tr>
 <th>-</th>
 <th>3</th>
@@ -335,6 +305,7 @@
 
 
 
+
 ##### # 表示变量可选择范围内的最好结果
 
 ##### * 表示不确定
@@ -343,7 +314,7 @@
 
 ```python
 decoder_config.add_summary_cross_attention = True
-decoder_config.summary_attention_layers = 6   #add_summary_cross_attention是summary_attention_layers的开关
+decoder_config.summary_attention_layers = 6
 -add_summary_cross_attention
 ```
 
