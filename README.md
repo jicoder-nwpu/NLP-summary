@@ -16,16 +16,9 @@
 |      ururu(no_cross)      |   best(3)    | summary & response | 已完成 | 94.20  | 85.70  | 19.72 | 109.67 |   5   | Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_3_nocross | CUDA_VISIBLE_DEVICES=0 nohup python3 main.py -version 2.1 -run_type train -backbone model_path/ -model_dir ./sum_ws_3_nocross -batch_size 8 -context_size 4 -ururu -warmup_ratio 0.1 >> sum_ws_3_nocross.log & |
 | ururu(multi input fusion) |   best(3)    | summary & response | 已完成 | 94.00  | 77.80  | 16.09 | 101.99 |  14   | Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_3_line_fusion | CUDA_VISIBLE_DEVICES=0 nohup python3 main.py -version 2.1 -run_type train -backbone model_path/ -model_dir ./sum_ws_3_line_fusion -batch_size 8 -context_size 4 -ururu -add_summary_cross_attention -warmup_ratio 0.1 >> sum_ws_3_line_fusion.log |
 
-##### 2. encoder + decoder
+##### 2. corss 热力图
 
-| Input |  Output  |    Comment     | Status |
-| :---: | :------: | :------------: | :----: |
-| ururu | summary  | 摘要的评价指标 | 未开始 |
-| ururu | response |       -        | 未开始 |
-
-##### 3. cross_attention 可视化
-
-##### 4. case study
+##### 3. case study
 
 ### 二、分析实验(2.0 & T5-base & Titan)
 
@@ -45,9 +38,11 @@
 |      ururu(no_cross)      |   best(3)    | summary & response | 已完成 | 93.70  | 86.10  | 19.88 | 109.78 |   3   | Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/woz2_sum_ws_3_nocross | python3 main.py -version 2.0 -run_type train -backbone model_path/ -model_dir ./woz2_sum_ws_3_nocross -batch_size 8 -context_size 4 -ururu -warmup_ratio 0.1 |
 | ururu(multi input fusion) |   best(3)    | summary & response | 已完成 | 92.90  | 82.10  | 17.60 | 105.10 |  19   | Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/woz2_sum_ws_3_line_fusion | CUDA_VISIBLE_DEVICES=0 nohup python3 main.py -version 2.0 -run_type train -backbone model_path/ -model_dir ./woz2_sum_ws_3_line_fusion -batch_size 8 -context_size 4 -ururu -add_summary_cross_attention -warmup_ratio 0.1 -epochs 20 & |
 
-##### 
+##### 2. corss 热力图
 
-### 三、分析实验(单领域 & T5-base & Titan)
+##### 3. case study
+
+### 三、分析实验(单/多领域 & T5-base & Titan)
 
 | Version |      Type       | Input | Windows Size |       Output       | Status | Inform | Sucess | Bleu  | Score  | Epoch |                             dir                              | Command                                                      |
 | :-----: | :-------------: | :---: | :----------: | :----------------: | :----: | :----: | :----: | :---: | :----: | :---: | :----------------------------------------------------------: | ------------------------------------------------------------ |
@@ -60,7 +55,37 @@
 |   2.1   | cross - single  | ururu |      3       | summary & response | 已完成 | 93.72  | 88.34  | 17.45 | 108.48 |   5   | Titan/home/jhr/share_encoder_cross_attention/Multi_Singel/sum_ws_3_cross | python3 main.py -run_type predict -ckpt sum_ws_3_cross/ckpt-epoch5 -output predict.json -batch_size 32 |
 |   2.1   |  cross - multi  | ururu |      3       | summary & response | 已完成 | 94.34  | 85.20  | 20.16 | 109.93 |   5   | Titan/home/jhr/share_encoder_cross_attention/Multi_Singel/sum_ws_3_cross | python3 main.py -run_type predict -ckpt sum_ws_3_cross/ckpt-epoch5 -output predict.json -batch_size 32 |
 
-##### Tips: Titan cross_attention版本需要在model初始化中手动设置是否添加summary cross attention模块
+### 四、分析实验(单任务 & T5-base & Titan)
+
+##### encoder + decoder
+
+###### `***`表示最好模型上的结果
+
+###### 1. summary
+
+| version | Windows Size | Input | Output  |                           rouge-1                            |                           rouge-2                            |                           rouge-l                            | epoch | Status |                             dir                              |
+| :-----: | :----------: | :---: | :-----: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :---: | :----: | :----------------------------------------------------------: |
+|   2.1   |      3       | ururu | summary | {'r': 0.922283129152879, 'p': 0.9392023019818028, 'f': 0.9255667254931568} | {'r': 0.8772182467207631, 'p': 0.8968897022209281, 'f': 0.8805116946287996} | {'r': 0.9215677058957571, 'p': 0.9384848894896802, 'f': 0.9248563942249765} |   5   | 已完成 | Titan/home/jhr/share_encoder_cross_attention/EncDec/sum_ws_3 |
+|   2.1   |      3       | ururu | summary | {'r': 0.9189833591462238, 'p': 0.9136842625054972, 'f': 0.9106830368142944} | {'r': 0.8653010212198636, 'p': 0.8642902611476211, 'f': 0.8577363270338426} | {'r': 0.9177845844852724, 'p': 0.9125237350102509, 'f': 0.9095112124692017} |   1   | 已完成 | Titan/home/jhr/share_encoder_cross_attention/EncDec/sum_ws_3 |
+|   2.1   |      3       | ururu |   ***   | {'r': 0.9228753163224764, 'p': 0.9367583873747523, 'f': 0.9244179638478859} | {'r': 0.877886232718826, 'p': 0.8949004185435945, 'f': 0.8795942811734093}, | {'r': 0.922155262527637, 'p': 0.9360557112666748, 'f': 0.9237121370850593} |   5   | 已完成 | Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_3_cross |
+|   2.0   |      3       | ururu | summary | {'r': 0.9299818567423722, 'p': 0.9426625320968237, 'f': 0.9316544078367516} | {'r': 0.8879356533679731, 'p': 0.9018309486940458, 'f': 0.8889221284407192} | {'r': 0.9294390116161602, 'p': 0.9421220066774841, 'f': 0.931115969795204} |   4   | 已完成 | Titan/home/jhr/share_encoder_cross_attention/EncDec/woz2_sum_ws_3 |
+|   2.0   |      3       | ururu | summary | {'r': 0.9314036268970548, 'p': 0.9279415061624507, 'f': 0.9244615489014817} | {'r': 0.8847915258145336, 'p': 0.8821349137090325, 'f': 0.8769431719912371} | {'r': 0.9306600306180594, 'p': 0.9271958302773182, 'f': 0.9237223039444723} |   1   | 已完成 | Titan/home/jhr/share_encoder_cross_attention/EncDec/woz2_sum_ws_3 |
+|   2.0   |      3       | ururu |   ***   | {'r': 0.9303882641050367, 'p': 0.9414149283787433, 'f': 0.9311982946793105} | {'r': 0.8873625023639897, 'p': 0.9004761245757127, 'f': 0.8879801120143638} | {'r': 0.9296462295537458, 'p': 0.9406734607532606, 'f': 0.9304609718604597} |   4   | 已完成 | Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/woz2_sum_ws_3_cross |
+
+##### 2. response
+
+| version | Windows Size | Input |  Output  | Inform | Sucess | Bleu  | Score  | epoch | Status |                             dir                              |
+| :-----: | :----------: | :---: | :------: | :----: | :----: | :---: | ------ | :---: | :----: | :----------------------------------------------------------: |
+|   2.1   |      3       | ururu | response |        |        |       |        |       | 进行中 | Titan/home/jhr/share_encoder_cross_attention/EncDec/resp_ws_3 |
+|   2.1   |      3       | ururu | response |        |        |       |        |       | 进行中 | Titan/home/jhr/share_encoder_cross_attention/EncDec/resp_ws_3 |
+|   2.1   |      3       | ururu |   ***    | 94.20  | 85.90  | 19.80 | 109.85 |   5   | 已完成 | Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_3_cross |
+|   2.0   |      3       | ururu | response |        |        |       |        |       | 未开始 | Titan/home/jhr/share_encoder_cross_attention/EncDec/woz2_resp_ws_3 |
+|   2.0   |      3       | ururu | response |        |        |       |        |       | 未开始 | Titan/home/jhr/share_encoder_cross_attention/EncDec/woz2_resp_ws_3 |
+|   2.0   |      3       | ururu |   ***    | 94.70  | 86.00  | 20.07 | 110.42 |   4   | 已完成 | Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/woz2_sum_ws_3_cross |
+
+### Tips
+
+###### Titan cross_attention版本需要在model初始化中手动设置是否添加summary cross attention模块
 
 ```python
 decoder_config.add_summary_cross_attention = True
