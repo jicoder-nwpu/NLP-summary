@@ -80,6 +80,7 @@
 |   2.1   |      3       | ururu | response | 已完成 | 93.00  | 85.30  | 18.88 | 108.03 |   4   | Titan/home/jhr/share_encoder_cross_attention/EncDec/resp_ws_3 |
 |   2.1   |      3       | ururu |   ***    | 已完成 | 94.20  | 85.90  | 19.80 | 109.85 |   5   | Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/sum_ws_3_cross |
 |   2.0   |      3       | ururu | response | 已完成 | 93.70  | 85.20  | 19.93 | 109.38 |   5   | Titan/home/jhr/share_encoder_cross_attention/EncDec/woz2_resp_ws_3 |
+|   2.0   |      3       | ururu | response | 已完成 | 93.30  | 83.60  | 20.32 | 108.77 |   8   | Titan/home/jhr/share_encoder_cross_attention/EncDec/woz2_resp_ws_3 |
 |   2.0   |      3       | ururu |   ***    | 已完成 | 94.70  | 86.00  | 20.07 | 110.42 |   4   | Titan/home/jhr/share_encoder_cross_attention/MTTOD-main/woz2_sum_ws_3_cross |
 
 ### Tips
