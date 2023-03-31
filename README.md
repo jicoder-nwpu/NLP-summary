@@ -44,6 +44,8 @@
 
 ### 三、分析实验(单/多领域 & T5-base & Titan)
 
+##### 1. OURS
+
 | Version |      Type       | Input | Windows Size |       Output       | Status | Inform | Sucess | Bleu  | Score  | Epoch |                             dir                              | Command                                                      |
 | :-----: | :-------------: | :---: | :----------: | :----------------: | :----: | :----: | :----: | :---: | :----: | :---: | :----------------------------------------------------------: | ------------------------------------------------------------ |
 |   2.0   | single - single | ururu |      3       | summary & response | 已完成 | 90.13  | 82.06  | 15.17 | 101.27 |   5   | Titan/home/jhr/share_encoder_cross_attention/Multi_Singel/woz2_sum_ws_3_cross_single | CUDA_VISIBLE_DEVICES=0 nohup python3 main.py -version 2.0 -run_type train -backbone model_path/ -model_dir ./woz2_sum_ws_3_cross_single -batch_size 8 -context_size 4 -ururu -add_summary_cross_attention -woz_type single -warmup_ratio 0.1 & |
@@ -54,6 +56,19 @@
 |   2.1   |  multi - multi  | ururu |      3       | summary & response | 已完成 | 93.05  | 82.63  | 19.26 | 107.10 |  10   | Titan/home/jhr/share_encoder_cross_attention/Multi_Singel/sum_ws_3_cross_multi | CUDA_VISIBLE_DEVICES=1 nohup python3 main.py -version 2.1 -run_type train -backbone model_path/ -model_dir ./sum_ws_3_cross_multi -batch_size 8 -context_size 4 -ururu -add_summary_cross_attention -woz_type multi -warmup_ratio 0.1 & |
 |   2.1   | cross - single  | ururu |      3       | summary & response | 已完成 | 93.72  | 88.34  | 17.45 | 108.48 |   5   | Titan/home/jhr/share_encoder_cross_attention/Multi_Singel/sum_ws_3_cross | python3 main.py -run_type predict -ckpt sum_ws_3_cross/ckpt-epoch5 -output predict.json -batch_size 32 |
 |   2.1   |  cross - multi  | ururu |      3       | summary & response | 已完成 | 94.34  | 85.20  | 20.16 | 109.93 |   5   | Titan/home/jhr/share_encoder_cross_attention/Multi_Singel/sum_ws_3_cross | python3 main.py -run_type predict -ckpt sum_ws_3_cross/ckpt-epoch5 -output predict.json -batch_size 32 |
+
+##### 2. MTTOD
+
+| Version |      Type       | Windows Size | Status | Inform | Sucess | Bleu  | Score  | Epoch | Dir                                        | Command                                                      |
+| :-----: | :-------------: | :----------: | :----: | :----: | :----: | :---: | :----: | :---: | ------------------------------------------ | ------------------------------------------------------------ |
+|   2.0   | single - single |      3       | 已完成 | 95.52  | 85.20  | 14.78 | 105.14 |   9   | Titan/home/jhr/MTTOD-main/woz2_single_ws_3 | python3 main.py -version 2.0 -run_type train -backbone model_path/ -model_dir ./woz2_single_ws_3 -batch_size 8 -context_size 4 -add_auxiliary_task -warmup_ratio 0.1 -domain single >> woz2_single_ws_3.log |
+|   2.0   |  multi - multi  |      3       | 已完成 | 90.86  | 81.47  | 19.35 | 105.52 |  10   | Titan/home/jhr/MTTOD-main/woz2_multi_ws_3  | python3 main.py -version 2.0 -run_type train -backbone model_path/ -model_dir ./woz2_multi_ws_3 -batch_size 8 -context_size 4 -add_auxiliary_task -warmup_ratio 0.1 -domain multi >> woz2_multi_ws_3.log |
+|   2.0   | cross - single  |      3       | 已完成 | 92.38  | 85.65  | 16.74 | 105.75 |   9   | Titan/home/jhr/MTTOD-main/woz2_ws_3_add    | python3 main.py -run_type predict -ckpt woz2_ws_3_add/ckpt-epoch9 -output predict.json -batch_size 128 -domain single |
+|   2.0   |  cross - multi  |      3       | 已完成 | 93.56  | 83.40  | 19.52 | 108.00 |   9   | Titan/home/jhr/MTTOD-main/woz2_ws_3_add    | python3 main.py -run_type predict -ckpt woz2_ws_3_add/ckpt-epoch9 -output predict.json -batch_size 128 -domain multi |
+|   2.1   | single - single |      3       | 已完成 | 91.48  | 82.96  | 15.25 | 102.47 |  10   | Titan/home/jhr/MTTOD-main/single_ws_3      | python3 main.py -version 2.1 -run_type train -backbone model_path/ -model_dir ./single_ws_3 -batch_size 8 -context_size 4 -add_auxiliary_task -warmup_ratio 0.1 -domain single >> single_ws_3.log |
+|   2.1   |  multi - multi  |      3       | 已完成 | 91.12  | 81.85  | 19.70 | 106.19 |  10   | Titan/home/jhr/MTTOD-main/multi_ws_3       | python3 main.py -version 2.1 -run_type train -backbone model_path/ -model_dir ./multi_ws_3 -batch_size 8 -context_size 4 -add_auxiliary_task -warmup_ratio 0.1 -domain multi >> multi_ws_3.log |
+|   2.1   | cross - single  |      3       | 已完成 | 91.03  | 85.20  | 18.45 | 106.56 |   8   | Titan/home/jhr/MTTOD-main/ws_3_add         | python3 main.py -run_type predict -ckpt ws_3_add/ckpt-epoch8 -output predict.json -batch_size 128 -domain single |
+|   2.1   |  cross - multi  |      3       | 已完成 | 91.89  | 82.88  | 20.41 | 107.79 |   8   | Titan/home/jhr/MTTOD-main/ws_3_add         | python3 main.py -run_type predict -ckpt ws_3_add/ckpt-epoch8 -output predict.json -batch_size 128 -domain multi |
 
 ### 四、分析实验(单任务 & T5-base & Titan)
 
