@@ -42,6 +42,15 @@
 
 ##### 3. case study
 
+### 二、MTTIOD复现
+
+| Version | Windows Size | Status | Inform | Sucess | Bleu  | Score  | Epoch |                         dir                         |
+| :-----: | :----------: | :----: | :----: | :----: | :---: | :----: | :---: | :-------------------------------------------------: |
+|   2.0   |      3       | 已完成 | 93.30  | 83.90  | 19.14 | 107.74 |   9   | Titan/home/jhr/MTTOD-main/woz2_ws_3_add/ckpt-epoch9 |
+|   2.1   |      3       | 已完成 | 91.70  | 83.40  | 20.14 | 107.69 |   8   |   Titan/home/jhr/MTTOD-main/ws_3_add/ckpt-epoch8    |
+
+
+
 ### 三、分析实验(单/多领域 & T5-base & Titan)
 
 ##### 1. OURS
