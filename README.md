@@ -159,7 +159,7 @@
 |    hospital     |   2.0   |      3       | 已完成 |        |        |       |       |       | Titan/home/jhr/MTTOD-main/woz2_cross_hospital_police |                              -                               |
 |      hotel      |   2.1   |      3       | 已完成 | 19.18  | 18.71  | 8.17  | 27.12 |   1   |        Tiatan/home/jhr/MTTOD-main/cross_hotel        |                              -                               |
 |      hotel      |   2.0   |      3       | 已完成 | 19.18  | 18.08  | 6.40  | 25.04 |   1   |      Titan/home/jhr/MTTOD-main/woz2_cross_hotel      |                              -                               |
-|      train      |   2.1   |      3       | 已完成 |        |        |       |       |       |        Tiatan/home/jhr/MTTOD-main/cross_train        |                              -                               |
+|      train      |   2.1   |      3       | 已完成 | 78.55  | 54.49  | 4.31  | 70.83 |   4   |        Tiatan/home/jhr/MTTOD-main/cross_train        |                              -                               |
 |      train      |   2.0   |      3       | 已完成 |        |        |       |       |       |      Titan/home/jhr/MTTOD-main/woz2_cross_train      |                              -                               |
 |      taxi       |   2.1   |      3       | 已完成 |  100   | 19.08  | 7.25  | 66.79 |   5   |        Tiatan/home/jhr/MTTOD-main/cross_taxi         |                              -                               |
 |      taxi       |   2.0   |      3       | 已完成 |  100   | 20.00  | 6.21  | 66.21 |   6   |      Titan/home/jhr/MTTOD-main/woz2_cross_taxi       |                              -                               |
