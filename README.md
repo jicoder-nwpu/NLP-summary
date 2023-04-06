@@ -124,6 +124,8 @@
 
 ### 五、Cross Domain
 
+##### OURS
+
 |  Target Domain  | Version | Windows Size | Status | Inform | Sucess | Bleu  | Score | epoch |                             dir                              |                           commond                            |
 | :-------------: | :-----: | :----------: | :----: | :----: | :----: | :---: | :---: | :---: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |   restaurant    |   2.1   |      3       | 已完成 | 65.90  | 53.32  | 12.80 | 72.41 |   2   | Titan/home/jhr/share_encoder_cross_attention/Multi_Singel/cross_restaurant |                              -                               |
@@ -143,7 +145,26 @@
 | hospital_police |   2.1   |      3       | 已完成 |  100   | 37.97  | 13.00 | 81.99 |   5   | Titan/home/jhr/share_encoder_cross_attention/Multi_Singel/cross_hospital_police | python3 devide_by_domain.py -version 2.1 -target_domains hospital-police<br />python3 preprocess.py -version 2.1 -window_size 3<br />python3 main.py -version 2.1 -run_type train -backbone model_path/ -model_dir ./cross_hospital_police -batch_size 8 -context_size 4 -ururu -warmup_ratio 0.1 -add_summary_cross_attention -woz_type cross -no_validation |
 | hospital_police |   2.0   |      3       | 已完成 |  100   | 36.47  | 13.25 | 81.49 |   2   | Titan/home/jhr/share_encoder_cross_attention/Multi_Singel/woz2_cross_hospital_police | python3 devide_by_domain.py -version 2.0 -target_domains hospital-police<br />python3 preprocess.py -version 2.0 -window_size 3<br />python3 main.py -version 2.0 -run_type train -backbone model_path/ -model_dir ./woz2_cross_hospital_police -batch_size 8 -context_size 4 -ururu -warmup_ratio 0.1 -add_summary_cross_attention -woz_type cross -no_validation |
 
+##### MTTOD
 
+|  Target Domain  | Version | Windows Size | Status | Inform | Sucess | Bleu  | Score | epoch |                         dir                          |                           commond                            |
+| :-------------: | :-----: | :----------: | :----: | :----: | :----: | :---: | :---: | :---: | :--------------------------------------------------: | :----------------------------------------------------------: |
+|   restaurant    |   2.1   |      3       | 已完成 |  8.09  |  6.94  | 9.43  | 16.94 |   2   |      Titan/home/jhr/MTTOD-main/cross_restaurant      |                              -                               |
+|   restaurant    |   2.0   |      3       | 已完成 |  8.09  |  7.25  | 9.57  | 17.24 |   1   |   Titan/home/jhr/MTTOD-main/woz2_cross_restaurant    |                              -                               |
+|   attraction    |   2.1   |      3       | 已完成 | 20.00  | 14.67  | 10.86 | 28.20 |   1   |      Titan/home/jhr/MTTOD-main/cross_attraction      |                              -                               |
+|   attraction    |   2.0   |      3       | 已完成 | 20.00  | 14.67  | 10.75 | 28.08 |   1   |   Titan/home/jhr/MTTOD-main/woz2_cross_attraction    |                              -                               |
+|     police      |   2.1   |      3       | 已完成 |        |        |       |       |       |   Titan/home/jhr/MTTOD-main/cross_hospital_police    |                              -                               |
+|     police      |   2.0   |      3       | 已完成 |        |        |       |       |       | Titan/home/jhr/MTTOD-main/woz2_cross_hospital_police |                              -                               |
+|    hospital     |   2.1   |      3       | 已完成 |        |        |       |       |       |   Titan/home/jhr/MTTOD-main/cross_hospital_police    |                              -                               |
+|    hospital     |   2.0   |      3       | 已完成 |        |        |       |       |       | Titan/home/jhr/MTTOD-main/woz2_cross_hospital_police |                              -                               |
+|      hotel      |   2.1   |      3       | 已完成 | 19.18  | 18.71  | 8.17  | 27.12 |   1   |        Tiatan/home/jhr/MTTOD-main/cross_hotel        |                              -                               |
+|      hotel      |   2.0   |      3       | 已完成 | 19.18  | 18.08  | 6.40  | 25.04 |   1   |      Titan/home/jhr/MTTOD-main/woz2_cross_hotel      |                              -                               |
+|      train      |   2.1   |      3       | 已完成 |        |        |       |       |       |        Tiatan/home/jhr/MTTOD-main/cross_train        |                              -                               |
+|      train      |   2.0   |      3       | 已完成 |        |        |       |       |       |      Titan/home/jhr/MTTOD-main/woz2_cross_train      |                              -                               |
+|      taxi       |   2.1   |      3       | 已完成 |  100   | 19.08  | 7.25  | 66.79 |   5   |        Tiatan/home/jhr/MTTOD-main/cross_taxi         |                              -                               |
+|      taxi       |   2.0   |      3       | 已完成 |  100   | 20.00  | 6.21  | 66.21 |   6   |      Titan/home/jhr/MTTOD-main/woz2_cross_taxi       |                              -                               |
+| hospital_police |   2.1   |      3       | 已完成 |        |        |       |       |       |   Titan/home/jhr/MTTOD-main/cross_hospital_police    | rm -r data/MultiWOZ_2.1/cross-processed<br />python3 devide_by_domain.py -version 2.1 -target_domains restaurant<br />python3 preprocess.py -version 2.1<br />python3 main.py -version 2.1 -run_type train -backbone model_path/ -model_dir ./cross_restaurant -batch_size 8 -context_size 4 -warmup_ratio 0.1 -add_auxiliary_task -domain cross -no_validation |
+| hospital_police |   2.0   |      3       | 已完成 |        |        |       |       |       | Titan/home/jhr/MTTOD-main/woz2_cross_hospital_police | rm -r data/MultiWOZ_2.0/cross-processed<br />python3 devide_by_domain.py -version 2.0 -target_domains restaurant<br />python3 preprocess.py -version 2.0<br />python3 main.py -version 2.0 -run_type train -backbone model_path/ -model_dir ./woz2_cross_restaurant -batch_size 8 -context_size 4 -warmup_ratio 0.1 -add_auxiliary_task -domain cross -no_validation |
 
 ### Tips
 
