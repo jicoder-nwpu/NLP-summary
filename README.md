@@ -5,6 +5,14 @@
 | 2023.6.13 |      完成模型训练      |                                     | 待进行 |
 | 2023.6.14 |      完成模型预测      |                                     | 待进行 |
 
+#### 联合训练
+
+| version | cross_attention层 | response history windows size | summary history windows size | Input |      Output       | Status | rouge-1 | rouge-2 | rouge-l | Inform | Sucess | Bleu | Score | epoch |                       dir                        |                           commond                            |
+| :-----: | :---------------: | :---------------------------: | :--------------------------: | :---: | :---------------: | :----: | :-----: | :-----: | :-----: | :----: | :----: | :--: | :---: | :---: | :----------------------------------------------: | :----------------------------------------------------------: |
+|   2.1   |         1         |               3               |           all(100)           | ururu | summary & esponse | 进行中 |         |         |         |        |        |      |       |       | 四卡/home/jhr/query-sum/MTTOD-main/cs4_ss101_gen | python3 main.py -run_type train -backbone model_path/ -model_dir ./cs4_ss101_gen -context_size 4 -summary_context_size 101 -grad_accum_steps 8 -batch_size 1 -ururu -warmup_ratio 0.1 |
+
+
+
 #### 零、对话摘要改进验证实验
 
 ##### 1. last_turn_summary cross_attention updated_history
