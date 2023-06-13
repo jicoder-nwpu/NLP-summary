@@ -1,15 +1,15 @@
 |   date    |          plan          |              涉及文件               | status |
 | :-------: | :--------------------: | :---------------------------------: | :----: |
 | 2023.6.11 | 完成联合训练数据预处理 | preprocess.py、config.py、reader.py |  完成  |
-| 2023.6.12 |   完成模型数据流贯通   |                                     | 进行中 |
-| 2023.6.13 |      完成模型训练      |                                     | 待进行 |
-| 2023.6.14 |      完成模型预测      |                                     | 待进行 |
+| 2023.6.12 |   完成模型数据流贯通   |         model.py、runner.py         |  完成  |
+| 2023.6.13 |      完成模型训练      |                  -                  |  完成  |
+| 2023.6.14 |      完成模型预测      |                  -                  |  完成  |
 
 #### 联合训练
 
 | version | cross_attention层 | response history windows size | summary history windows size | Input |      Output       | Status | rouge-1 | rouge-2 | rouge-l | Inform | Sucess | Bleu | Score | epoch |                       dir                        |                           commond                            |
 | :-----: | :---------------: | :---------------------------: | :--------------------------: | :---: | :---------------: | :----: | :-----: | :-----: | :-----: | :----: | :----: | :--: | :---: | :---: | :----------------------------------------------: | :----------------------------------------------------------: |
-|   2.1   |         1         |               3               |           all(100)           | ururu | summary & esponse | 进行中 |         |         |         |        |        |      |       |       | 四卡/home/jhr/query-sum/MTTOD-main/cs4_ss101_gen | python3 main.py -run_type train -backbone model_path/ -model_dir ./cs4_ss101_gen -context_size 4 -summary_context_size 101 -grad_accum_steps 8 -batch_size 1 -ururu -warmup_ratio 0.1 |
+|   2.1   |         1         |               3               |           all(100)           | ururu | summary & esponse | 进行中 |         |         |         |        |        |      |       |       | 四卡/home/jhr/query-sum/MTTOD-main/cs3_ss100_gen | python3 main.py -run_type train -backbone model_path/ -model_dir ./cs4_ss101_gen -context_size 4 -summary_context_size 101 -grad_accum_steps 8 -batch_size 1 -ururu -warmup_ratio 0.1 |
 
 
 
