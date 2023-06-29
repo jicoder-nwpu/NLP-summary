@@ -15,3 +15,7 @@
 [cs3_ss100_only](./最新实验结果/cs3_ss100_only/ReadMe.md)
 
 [cs3_ss100_2decoder](./最新实验结果/cs3_ss100_2decoder/ReadMe.md)
+
+[cs3_ss3_chan_layer6_2decoder](./最新实验结果/cs3_ss3_chan_layer6_2decoder/ReadMe.md)
+
+[cs3_ss3_chan_layer1_2decoder](./最新实验结果/cs3_ss3_chan_layer1_2decoder/ReadMe.md)
