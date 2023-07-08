@@ -3,10 +3,10 @@
 | Summarization主实验                                          | Dataset |        |
 | ------------------------------------------------------------ | ------- | ------ |
 | Baseline                                                     | woz2.0  | woz2.1 |
-| Transformer（12层）                                          | 4卡     | 4卡    |
+| Transformer（12层）                                          | √       | 4卡    |
 | T5base                                                       | √       | √      |
 | ResumTOD（上一篇文章结果）                                   | √       | √      |
-| Summer（仅仅摘要模型）gen                                    |         |        |
+| Summer（仅仅摘要模型）gen                                    | √       | Titan  |
 | SummerTOD(联合回复生成)                                      |         |        |
 | **Summarization消融实验（在Summer上实验）**                  |         |        |
 | Model                                                        | WOZ2.0  | WOZ2.1 |
@@ -28,5 +28,5 @@
 | 不同Prompt的影响（优先级最低）                               |         |        |
 | 单领域VS.多领域                                              |         |        |
 | 多领域中随着对话长度增加（统计test集多领域中每个对话的轮数，根据轮数分别测试性能） |         |        |
-| 对话历史窗口（只做回复生成时输入encoder的对话历史轮数）（1到6）优先级最高 | titan   | Tesla  |
+| 对话历史窗口（只做回复生成时输入encoder的对话历史轮数）（1到6）优先级最高 | √       | Tesla  |
 | case study                                                   |         |        |
