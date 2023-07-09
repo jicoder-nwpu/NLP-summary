@@ -3,11 +3,11 @@
 | Summarization主实验                                          | Dataset |        |
 | ------------------------------------------------------------ | ------- | ------ |
 | Baseline                                                     | woz2.0  | woz2.1 |
-| Transformer（12层）                                          | √       | 4卡    |
+| Transformer（12层）                                          | √       | √      |
 | T5base                                                       | √       | √      |
 | ResumTOD（上一篇文章结果）                                   | √       | √      |
-| Summer（仅仅摘要模型）gen                                    | √       | Titan  |
-| SummerTOD(联合回复生成)                                      |         |        |
+| Summer（仅仅摘要模型）gen                                    | √       | √      |
+| SummerTOD(联合回复生成)                                      | √       |        |
 | **Summarization消融实验（在Summer上实验）**                  |         |        |
 | Model                                                        | WOZ2.0  | WOZ2.1 |
 | 利用groundtruth摘要                                          | √       | √      |
