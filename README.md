@@ -19,10 +19,10 @@
 | Model                                                        | WOZ2.0  | WOZ2.1 |
 | 没有摘要模型（输入按照对话历史+状态+动作）                   | √       | √      |
 | 没有共享Decoder，两个decoder                                 | √       | √      |
-| 回复的对话历史输入全部而非3窗口                              | √       | Titan  |
-| Dynamic Fusion中对话历史编码和摘要编码的cross_attention交换先后顺序 | Titan   | Titan  |
+| 回复的对话历史输入全部而非3窗口                              | √       | √      |
+| Dynamic Fusion中对话历史编码和摘要编码的cross_attention交换先后顺序 | √       | Titan  |
 | 生成的摘要不经过encoder，而直接使用隐状态（优先级最低）      |         |        |
-| **其他分析实验**                                             |         |        |
+| **其他分析实验**                                             | ~       | ~      |
 | 实验类型                                                     | WOZ2.0  | WOZ2.1 |
 | 对话历史窗口（只做回复生成时输入encoder的对话历史轮数）（1到6）优先级最高 | √       | √      |
 | zero-shot迁移实验                                            |         |        |
